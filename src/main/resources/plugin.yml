@@ -1,8 +1,8 @@
-name: ExamplePlugin
+name: SlashWelcome
 version: '${version}'
 main: io.github.itzispyder.exampleplugin.ExamplePlugin
 api-version: 1.17
-authors: [ YourNameHere ]
+authors: [ TheTrouper ]
 description: An example plugin template for Spigot/Paper.
 website: https://ItziSpyder.github.io/
 permissions:
@@ -10,8 +10,7 @@ permissions:
     description: An example permission
     default: op
 commands:
-  example:
+  welcome:
     description: An example command.
     usage: /example
-    permission: example.commands
     permission-message: You do not have permission!

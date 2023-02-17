@@ -30,17 +30,18 @@ public final class ExamplePlugin extends JavaPlugin {
      */
     @Override
     public void onEnable() {
+        // Files
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
         // Plugin startup logic
         log.info("Example plugin has loaded! (" + getDescription().getVersion() + ")");
         starter = Config.Plugin.getPrefix() + " ";
 
-        // Files
-        getConfig().options().copyDefaults();
-        saveDefaultConfig();
+
 
         // Commands -> BE SURE TO REGISTER ANY NEW COMMANDS IN PLUGIN.YML (src/main/java/resources/plugin.yml)!
-        getCommand("example").setExecutor(new CommandExample());
-        getCommand("example").setTabCompleter(new CommandExample.Tabs());
+        getCommand("welcome").setExecutor(new CommandExample());
+        getCommand("welcome").setTabCompleter(new CommandExample.Tabs());
 
         // Events
         manager.registerEvents(new ExampleEvent(),this);
@@ -61,6 +62,6 @@ public final class ExamplePlugin extends JavaPlugin {
      * @return an instance of this plugin
      */
     public static Plugin getInstance() {
-        return manager.getPlugin("ExamplePlugin");
+        return manager.getPlugin("SlashWelcome");
     }
 }
