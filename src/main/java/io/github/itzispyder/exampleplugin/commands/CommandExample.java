@@ -5,6 +5,7 @@
 package io.github.itzispyder.exampleplugin.commands;
 
 import io.github.itzispyder.exampleplugin.ExamplePlugin;
+import io.github.itzispyder.exampleplugin.data.Config;
 import io.github.itzispyder.exampleplugin.exceptions.CmdExHandler;
 import io.github.itzispyder.exampleplugin.server.util.ServerUtils;
 import org.bukkit.Bukkit;
@@ -13,6 +14,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,13 +30,17 @@ public class CommandExample implements CommandExecutor {
         try {
             Player P = (Player) sender;
             Player W = Bukkit.getPlayer(args[0]);
-            for (int i = 0; i < 1; i++) {
-                P.chat("§bWelcome " + W.getName() + "!");
-                Bukkit.getScheduler().scheduleSyncDelayedTask(ExamplePlugin.getInstance(),() -> {
-                    P.chat("§bDo /daily for a key and /kit for some free gear!");
-                }, 20);
-
-            }
+            "messages.get(i)".replaceAll("%player%",W.getName());
+            List<String> messages = Config.Plugin.messages;
+            new BukkitRunnable() {
+                int i = 0;
+                @Override
+                public void run() {
+                    if (i >= messages.size()) this.cancel();
+                    P.chat(messages.get(i).replaceAll("%player%",W.getName()));
+                    i ++;
+                }
+            }.runTaskTimer(ExamplePlugin.getInstance(),0,20);
             return true;
         } catch (Exception ex) {
             CmdExHandler handler = new CmdExHandler(ex,command);

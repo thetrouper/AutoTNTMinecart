@@ -7,6 +7,8 @@ package io.github.itzispyder.exampleplugin.data;
 import io.github.itzispyder.exampleplugin.ExamplePlugin;
 import org.bukkit.configuration.file.FileConfiguration;
 
+import java.util.List;
+
 /**
  * Config loader
  */
@@ -21,5 +23,6 @@ public abstract class Config {
         public static String getPrefix() {
             return config.getString("config.plugin.prefix");
         }
+        public static final List<String> messages = config.getStringList("config.plugin.messages");
     }
 }

@@ -5,4 +5,8 @@
 #
 config:
   plugin:
-    prefix: "§7[§aExamplePlugin§7]"
+    prefix: "§7[§aSlashWelcome§7]"
+    time: 24
+    messages:
+      - "Welcome to OgreDupe, %player%!"
+      - "Do /daily for a key and /kit for some free gear."

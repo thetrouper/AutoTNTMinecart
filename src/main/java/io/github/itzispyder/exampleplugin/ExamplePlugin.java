@@ -12,6 +12,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -33,6 +34,10 @@ public final class ExamplePlugin extends JavaPlugin {
         // Files
         getConfig().options().copyDefaults();
         saveDefaultConfig();
+        List<String> messages = (List<String>)getConfig().getList("config.plugin.messages");
+        for (String message : messages) {
+            Bukkit.getLogger().info(message);
+        }
         // Plugin startup logic
         log.info("Example plugin has loaded! (" + getDescription().getVersion() + ")");
         starter = Config.Plugin.getPrefix() + " ";

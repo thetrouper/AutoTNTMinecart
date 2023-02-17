@@ -12,5 +12,5 @@ permissions:
 commands:
   welcome:
     description: An example command.
-    usage: /example
+    usage: /welcome <player>
     permission-message: You do not have permission!
