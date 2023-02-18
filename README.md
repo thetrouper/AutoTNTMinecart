@@ -1,26 +1,22 @@
-# SlashWelcome
-A simple way to welcome new players
+# ExamplePluginTemplate
+An example plugin template for beginners!
 -----------------------------------------------------
 
-Make poeple feel welcomed with one command!
+Trying to create your first plugin? Use this template to get started easily!
 
-- Multiple welcome messages
-- Randomization
-- Delay (Humanization)
+- Comments to guide you
+- Made some example classes
+- Added some useful utils
 
 -----------------------------------------------------
 
 ## How to use
 
-Download the latest realease or build it in gradle
+Download this template -\> Load it into your IDE or development environment. [Check out IntelliJ](https://www.jetbrains.com/idea/download/?fromIDE=#section=windows) -\> Get Creative!
 
-- To build your jar file simply go into the terminal and run `gradlew build`
+- To build your jar file simply go into the terminal and run `./gradlew build`
 - Your finished jar should appear in `build/libs`!
 
-Install the plugin by dropping it in your plugins
-- if you have [PlugManX](https://www.spigotmc.org/resources/plugmanx.88135/) 
-- - Do `/plugman load SlashWelcome`
-- - Then `/plugman reload SlashWelcome`
-- Otherwise do `/reload confirm` or restart the server
 -----------------------------------------------------
 
+Have a nice day, happy coding!

@@ -6,7 +6,11 @@
 config:
   plugin:
     prefix: "§7[§aSlashWelcome§7]"
-    time: 24
+    delay: 24
     messages:
-      - "Welcome to OgreDupe, %player%!"
-      - "Do /daily for a key and /kit for some free gear."
+      A:
+        - "Welcome to OgreDupe, %player%!"
+        - "Do /daily for a key and /kit for some free gear."
+      B:
+        - "Have fun, %player%!"
+        - "Feel free to do /daily for a key and /kit for gear!"

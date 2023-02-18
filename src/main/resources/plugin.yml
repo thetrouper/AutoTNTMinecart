@@ -11,6 +11,6 @@ permissions:
     default: op
 commands:
   welcome:
-    description: An example command.
+    description: Welcomes new players.
     usage: /welcome <player>
     permission-message: You do not have permission!

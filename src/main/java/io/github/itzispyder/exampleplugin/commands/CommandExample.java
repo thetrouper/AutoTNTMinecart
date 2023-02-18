@@ -19,6 +19,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Example command
@@ -30,17 +31,21 @@ public class CommandExample implements CommandExecutor {
         try {
             Player P = (Player) sender;
             Player W = Bukkit.getPlayer(args[0]);
-            "messages.get(i)".replaceAll("%player%",W.getName());
-            List<String> messages = Config.Plugin.messages;
+            List<String> options = new ArrayList(Config.Plugin.options);
+            int random = Config.choice(0,options.size());
+            List<String> messages = Config.config.getStringList("config.plugin.messages." + options.get(random));
+            Integer delay = Config.Plugin.delay;
+            P.chat(options.toString() + " " + random);
             new BukkitRunnable() {
                 int i = 0;
                 @Override
                 public void run() {
-                    if (i >= messages.size()) this.cancel();
-                    P.chat(messages.get(i).replaceAll("%player%",W.getName()));
-                    i ++;
+                    if (i < messages.size()) {
+                        P.chat(messages.get(i).replaceAll("%player%",W.getName()));
+                        i ++;
+                    } else this.cancel();
                 }
-            }.runTaskTimer(ExamplePlugin.getInstance(),0,20);
+            }.runTaskTimer(ExamplePlugin.getInstance(),0,delay);
             return true;
         } catch (Exception ex) {
             CmdExHandler handler = new CmdExHandler(ex,command);
