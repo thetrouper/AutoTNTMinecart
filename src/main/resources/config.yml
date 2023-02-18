@@ -14,3 +14,6 @@ config:
       B:
         - "Have fun, %player%!"
         - "Feel free to do /daily for a key and /kit for gear!"
+      C:
+        - "Good luck, %player%!"
+        - "Make sure to pick up your /daily key and your kit!"

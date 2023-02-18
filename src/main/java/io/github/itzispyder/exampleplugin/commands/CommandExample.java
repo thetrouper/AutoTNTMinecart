@@ -35,7 +35,6 @@ public class CommandExample implements CommandExecutor {
             int random = Config.choice(0,options.size());
             List<String> messages = Config.config.getStringList("config.plugin.messages." + options.get(random));
             Integer delay = Config.Plugin.delay;
-            P.chat(options.toString() + " " + random);
             new BukkitRunnable() {
                 int i = 0;
                 @Override
